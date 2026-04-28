@@ -1022,6 +1022,53 @@ function PageHome({ t, cars, setPage, setSelectedCar }) {
           ))}
         </div>
       </div>
+
+      {/* SEZIONE CONTATTI IN HOMEPAGE */}
+      <div style={{ padding: isMobile ? "60px 20px" : "80px 48px", background: "#0D0D0D" }}>
+        <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: 40, flexWrap: "wrap", gap: 12 }}>
+          <div>
+            <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: 3, color: "#C8102E", textTransform: "uppercase", marginBottom: 8 }}>{t.contact.pageLabel}</div>
+            <h2 style={{ fontFamily: "'Space Grotesk',sans-serif", fontSize: isMobile ? 26 : 36, fontWeight: 700, color: "#fff", letterSpacing: -1 }}>
+              {t.contact.pageTitle1}<span style={{ color: "#C8102E" }}>{t.contact.pageTitle2}</span>
+            </h2>
+          </div>
+          <button onClick={() => { setPage("contact"); window.scrollTo(0, 0); }}
+            style={{ background: "transparent", border: "1px solid #2E2E2E", color: "#A0A0A0", padding: "10px 20px", fontFamily: "Inter,sans-serif", fontSize: 12, fontWeight: 500, cursor: "pointer", borderRadius: 2 }}>
+            {t.nav.contact} →
+          </button>
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr 1fr", gap: 1, background: "rgba(255,255,255,0.04)", marginBottom: 16 }}>
+          {[
+            { icon: "📞", title: t.contact.phone, val: t.contact.phoneVal, sub: t.contact.phoneSub, href: "tel:+390472869296" },
+            { icon: "✉️", title: t.contact.email, val: t.contact.emailVal, sub: t.contact.emailSub, href: "mailto:info@ghm-sportcars.com" },
+            { icon: "📍", title: t.contact.show, val: "Via Statale 13", sub: "39030 Vandoies (BZ)\nAlto Adige", href: "https://maps.google.com/?q=Via+Statale+13,+39030+Vandoies+BZ" },
+          ].map(({ icon, title, val, sub, href }) => (
+            <a key={title} href={href} target={href.startsWith("http") ? "_blank" : "_self"} rel="noreferrer"
+              className="contact-card"
+              style={{ background: "#141414", padding: isMobile ? "28px 20px" : "36px 32px", textDecoration: "none", display: "block" }}>
+              <div style={{ width: 44, height: 44, background: "rgba(200,16,46,0.1)", border: "1px solid rgba(200,16,46,0.2)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 20, borderRadius: 2, fontSize: 20 }}>{icon}</div>
+              <h3 style={{ fontFamily: "'Space Grotesk',sans-serif", fontSize: 16, fontWeight: 600, color: "#fff", marginBottom: 8 }}>{title}</h3>
+              <p style={{ fontSize: 14, color: "#C8102E", fontWeight: 600, marginBottom: 6 }}>{val}</p>
+              <p style={{ fontSize: 12, color: "#606060", lineHeight: 1.7, whiteSpace: "pre-line" }}>{sub}</p>
+            </a>
+          ))}
+        </div>
+        <div style={{ background: "#141414", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 2, padding: isMobile ? "24px 20px" : "28px 32px", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 16 }}>
+          <div>
+            <div style={{ fontFamily: "'Space Grotesk',sans-serif", fontSize: isMobile ? 16 : 18, fontWeight: 700, color: "#fff", marginBottom: 6 }}>
+              {t.lang === "de" ? "Schreiben Sie uns auf WhatsApp" : "Scrivici su WhatsApp"}
+            </div>
+            <p style={{ fontSize: 13, color: "#606060", margin: 0 }}>
+              {t.lang === "de" ? "Schnelle Antworten, direkt auf Ihrem Telefon." : "Risposte rapide, direttamente sul tuo telefono."}
+            </p>
+          </div>
+          <a href={"https://wa.me/393480000000?text=" + encodeURIComponent(t.lang === "de" ? "Guten Tag! Ich interessiere mich für ein Fahrzeug." : "Ciao! Sono interessato a una vettura.")}
+            target="_blank" rel="noreferrer" className="btn-wa"
+            style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "#25D366", color: "#fff", textDecoration: "none", padding: "13px 28px", fontFamily: "Inter,sans-serif", fontSize: 13, fontWeight: 700, borderRadius: 2 }}>
+            <span style={{ fontSize: 18 }}>💬</span> WhatsApp
+          </a>
+        </div>
+      </div>
     </>
   );
 }
