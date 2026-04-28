@@ -984,7 +984,11 @@ function AdminPage({ cars, onLogout, onBack, showToast, t }) {
 function PageHome({ t, cars, setPage, setSelectedCar }) {
   const isMobile = useIsMobile();
   const [videoError, setVideoError] = useState(false);
+  const [showAll, setShowAll] = useState(false);
   const r = { color: "#C8102E" };
+  // Prima riga: 3 su desktop (1 riga da 3 col), 2 su mobile
+  const initialCount = isMobile ? 2 : 3;
+  const visibleCars = showAll ? cars.slice(0, isMobile ? 6 : 9) : cars.slice(0, initialCount);
   return (
     <>
       <div style={{ position: "relative", height: "100vh", overflow: "hidden", display: "flex", alignItems: "center" }}>
@@ -1023,7 +1027,7 @@ function PageHome({ t, cars, setPage, setSelectedCar }) {
           ))}
         </div>
       </div>
-      <div style={{ padding: isMobile ? "60px 20px" : "80px 48px" }}>
+      <div className="catalog-section" style={{ padding: isMobile ? "60px 20px" : "80px 48px" }}>
         <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: 32, flexWrap: "wrap", gap: 12 }}>
           <div>
             <div style={{ fontSize: 10, fontWeight: 600, letterSpacing: 3, color: "#C8102E", textTransform: "uppercase", marginBottom: 8 }}>{t.catalog.label}</div>
@@ -1032,7 +1036,25 @@ function PageHome({ t, cars, setPage, setSelectedCar }) {
           <button onClick={() => { setPage("catalog"); window.scrollTo(0, 0); }} style={{ background: "transparent", border: "1px solid #2E2E2E", color: "#A0A0A0", padding: "10px 20px", fontFamily: "Inter,sans-serif", fontSize: 12, fontWeight: 500, cursor: "pointer", borderRadius: 2 }}>Vedi tutto →</button>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fill,minmax(280px,1fr))", gap: 1, background: "#2E2E2E" }}>
-          {cars.slice(0, isMobile ? 3 : 6).map(car => <CarCard key={car.id} car={car} t={t} onSelect={c => { setSelectedCar(c); window.scrollTo(0, 0); }} />)}
+          {visibleCars.map(car => <CarCard key={car.id} car={car} t={t} onSelect={c => { setSelectedCar(c); window.scrollTo(0, 0); }} />)}
+          {!showAll && cars.length > initialCount && (
+            <div style={{ gridColumn: "1/-1", textAlign: "center", padding: "20px 0 4px" }}>
+              <button onClick={() => setShowAll(true)}
+                style={{ background: "transparent", border: "1px solid #2E2E2E", color: "#A0A0A0", padding: "12px 32px", fontFamily: "Inter,sans-serif", fontSize: 13, fontWeight: 500, cursor: "pointer", borderRadius: 2, display: "inline-flex", alignItems: "center", gap: 8, transition: "all .2s" }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = "#C8102E"; e.currentTarget.style.color = "#fff"; }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = "#2E2E2E"; e.currentTarget.style.color = "#A0A0A0"; }}>
+                ↓ {t.lang === "de" ? "Mehr anzeigen" : "Mostra altri"} ({cars.length - initialCount})
+              </button>
+            </div>
+          )}
+          {showAll && (
+            <div style={{ gridColumn: "1/-1", textAlign: "center", padding: "20px 0 4px" }}>
+              <button onClick={() => { setShowAll(false); window.scrollTo({top: document.querySelector(".catalog-section")?.offsetTop - 80 || 0, behavior: "smooth"}); }}
+                style={{ background: "transparent", border: "1px solid #2E2E2E", color: "#606060", padding: "10px 24px", fontFamily: "Inter,sans-serif", fontSize: 12, cursor: "pointer", borderRadius: 2 }}>
+                ↑ {t.lang === "de" ? "Weniger anzeigen" : "Mostra meno"}
+              </button>
+            </div>
+          )}
         </div>
       </div>
       <div style={{ background: "#141414", padding: isMobile ? "60px 20px" : "80px 48px", display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: 48, alignItems: "center" }}>
