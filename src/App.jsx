@@ -66,12 +66,12 @@ const T = {
     },
     where: {
       pageLabel: "Vieni a trovarci", pageTitle1: "Dove", pageTitle2: "Siamo",
-      address: "Il nostro showroom", addressVal: "Via Statale 13", addressCity: "39030 Vandoies (BZ), Alto Adige",
+      address: "Il nostro showroom", addressVal: "Via Statale 13", addressCity: "Via Statale 13\n39030 Vandoies (BZ)\nAlto Adige, Italia",
       hours: "Orari di apertura",
       hoursData: [{ day: "Lunedì – Venerdì", time: "8:30 – 18:00" }, { day: "Sabato", time: "9:00 – 13:00" }, { day: "Domenica", time: "Chiuso" }],
-      howToGet: "Come raggiungerci", byCar: "In auto", byCarDesc: "Uscita Brunico sull'A22, seguire le indicazioni per il centro. Via Dante è a 5 minuti dall'uscita autostradale.",
-      byTrain: "In treno", byTrainDesc: "Stazione di Brunico a 10 minuti a piedi. Linea Fortezza–San Candido.",
-      parking: "Parcheggio", parkingDesc: "Parcheggio gratuito disponibile direttamente davanti allo showroom.",
+      howToGet: "Come raggiungerci", byCar: "In auto", byCarDesc: "Uscita Bressanone/Valle Isarco o Brunico sull'A22, seguire le indicazioni per Vandoies. Via Statale 13 è facilmente raggiungibile in auto.",
+      byTrain: "In treno", byTrainDesc: "Fermata di Vandoies sulla linea ferroviaria Fortezza–San Candido, a pochi passi dallo showroom.",
+      parking: "Parcheggio", parkingDesc: "Parcheggio gratuito disponibile direttamente davanti allo showroom per tutti i clienti.",
       mapTitle: "Trovaci su Google Maps", cta: "Apri in Google Maps",
     },
     contact: {
@@ -141,34 +141,34 @@ const T = {
   de: {
     nav: { home: "Home", catalog: "Fahrzeuge", about: "Über Uns", where: "Standort", contact: "Kontakt" },
     hero: {
-      eyebrow: "Exklusive Auswahl — Südtirol", title1: "Ausgewählte", title2: "Fahrzeuge",
-      sub: "Gebrauchtwagen aus Vintl, Südtirol — sorgfältig ausgewählt und transparent angeboten. Lieferung in ganz Italien möglich.",
-      cta1: "Zum Fahrzeugkatalog", cta2: "Kontakt",
+      eyebrow: "Exklusive Auswahl — Südtirol", title1: "Ausgewählte Fahrzeuge", title2: "mit Leidenschaft",
+      sub: "Gebrauchtwagen aus Vintl in Südtirol — sorgfältig ausgewählt und ehrlich angeboten. Lieferung in ganz Italien möglich.",
+      cta1: "Zum Fahrzeugkatalog", cta2: "Kontakt aufnehmen",
       stat1: "Fahrzeuge verfügbar", stat2: "Jahre Erfahrung", stat3: "Zufriedene Kunden",
     },
     ticker: ["Zertifizierte Fahrzeuge","Garantie inklusive","Finanzierung möglich","Lieferung in ganz Italien","Inzahlungnahme","After-Sales-Service"],
-    catalog: { label: "Sofort verfügbar", title: "Unser", titleRed: "Angebot", empty: "Keine Fahrzeuge gefunden", loading: "Fahrzeuge werden geladen...", backBtn: "← Zurück zum Katalog" },
+    catalog: { label: "Sofort verfügbar", title: "Unsere", titleRed: "Fahrzeuge", empty: "Keine Fahrzeuge gefunden", loading: "Fahrzeuge werden geladen...", backBtn: "← Zurück zum Katalog" },
     search: { placeholder: "Marke oder Modell suchen...", brand: "Marke", priceMin: "Mindestpreis (€)", priceMax: "Höchstpreis (€)", kmMax: "Max. KM", yearMin: "Jahr ab", yearMax: "Jahr bis", category: "Kategorie", all: "Alle", reset: "Zurücksetzen", results: "Fahrzeuge gefunden", filters: "Filter" },
-    card: { iva: "inkl. MwSt.", details: "Details ansehen" },
+    card: { iva: "inkl. MwSt.", details: "Details anzeigen" },
     detail: {
       photos: "Fotos", description: "Beschreibung", specs: "Technische Daten", contact: "Kontakt",
-      whatsapp: "WhatsApp schreiben", whatsappMsg: "Hallo! Ich interessiere mich für den",
-      callBtn: "Jetzt anrufen", emailBtn: "E-Mail senden",
-      specsLabels: { power: "Leistung", km: "Kilometerstand", year: "Jahr", category: "Kategorie", fuel: "Kraftstoff", gearbox: "Getriebe", color: "Farbe", doors: "Türen", seats: "Sitze" },
-      noDesc: "Beschreibung nicht verfügbar.",
+      whatsapp: "Auf WhatsApp schreiben", whatsappMsg: "Guten Tag! Ich interessiere mich für das Fahrzeug:",
+      callBtn: "Jetzt anrufen", emailBtn: "E-Mail schreiben",
+      specsLabels: { power: "Leistung", km: "Kilometerstand", year: "Baujahr", category: "Kategorie", fuel: "Kraftstoff", gearbox: "Getriebe", color: "Farbe", doors: "Türen", seats: "Sitzplätze" },
+      noDesc: "Keine Beschreibung vorhanden.",
       price: "Preis", iva: "inkl. MwSt.",
-      requestInfo: "Informationen anfordern",
+      requestInfo: "Informationen anfragen",
       sold: "Verkauft", reserved: "Reserviert",
-      share: "Teilen", copied: "Link kopiert!",
+      share: "Link teilen", copied: "Link kopiert!",
       photoOf: "von",
     },
     about: {
       pageLabel: "Unsere Geschichte", pageTitle1: "Über", pageTitle2: "Uns",
-      hero: "Ein Familienbetrieb mit Leidenschaft für Automobile",
-      heroSub: "Seit 2009 in Vintl, Südtirol — Gebrauchtwagen mit Sorgfalt ausgewählt und transparent angeboten.",
-      story1: "HM Sportcars wurde 2009 in Vintl (BZ) von Martin Huber und Hartmann Leitner gegründet, beide leidenschaftliche Autoliebhaber mit jahrelanger Erfahrung in der Branche. Das Ziel: ausgewählte Gebrauchtwagen zu fairen Preisen, mit Ehrlichkeit und Respekt gegenüber jedem Kunden.",
-      story2: "Jedes Fahrzeug, das wir anbieten, wird sorgfältig geprüft. Wir versuchen, transparent über Geschichte und Zustand jedes Autos zu informieren — weil ein gut informierter Kauf die Grundlage einer dauerhaften Vertrauensbeziehung ist.",
-      story3: "Wir sind ein kleines, familiäres Team — direkt und unkompliziert. Wir beantworten gerne jede Frage und begleiten unsere Kunden aufmerksam vom ersten Interesse bis zur Fahrzeugübergabe.",
+      hero: "Ein Familienbetrieb mit Leidenschaft für Fahrzeuge",
+      heroSub: "Seit 2009 in Vintl, Südtirol — Gebrauchtwagen sorgfältig ausgewählt und transparent angeboten.",
+      story1: "HM Sportcars wurde 2009 in Vintl (BZ) von Martin Huber und Hartmann Leitner gegründet — zwei Autobegeisterte mit langjähriger Erfahrung in der Branche. Das Ziel war und ist es, ausgewählte Gebrauchtwagen zu fairen Preisen anzubieten, mit Ehrlichkeit und Respekt jedem Kunden gegenüber.",
+      story2: "Jedes Fahrzeug, das wir anbieten, wird vor dem Verkauf gründlich geprüft. Wir legen Wert darauf, offen über Zustand und Geschichte jedes Autos zu informieren — denn ein gut informierter Kauf ist die Grundlage für ein dauerhaftes Vertrauensverhältnis.",
+      story3: "Wir sind ein kleines, familiäres Team — unkompliziert und direkt. Wir nehmen uns Zeit für jede Frage und begleiten unsere Kunden aufmerksam vom ersten Kontakt bis zur Fahrzeugübergabe.",
       teamTitle: "Unser Team",
       team: [
         { name: "Hans Mair", role: "Gründer & Inhaber", desc: "Seit jeher begeisterter Autoliebhaber." },
@@ -178,26 +178,26 @@ const T = {
       ],
       valuesTitle: "Unsere Werte",
       values: [
-        { icon: "🔍", title: "Sorgfältige Auswahl", desc: "Wir prüfen jedes Fahrzeug vor dem Angebot — wir verkaufen nur Autos, die wir selbst kaufen würden." },
-        { icon: "📋", title: "Klare Informationen", desc: "Wir stellen alle verfügbaren Informationen zu jedem Fahrzeug bereit: Geschichte, Kilometerstand und Allgemeinzustand." },
-        { icon: "🤝", title: "Direkter Kontakt", desc: "Wir stehen für jede Frage zur Verfügung. Ein gut informierter Kauf ist uns wichtiger als ein schneller Abschluss." },
-        { icon: "⭐", title: "After-Sales-Service", desc: "Wir sind auch nach der Übergabe erreichbar — für alles, was nach dem Kauf gebraucht werden könnte." },
+        { icon: "🔍", title: "Sorgfältige Auswahl", desc: "Jedes Fahrzeug wird vor dem Verkauf genau geprüft. Wir bieten nur Fahrzeuge an, die wir selbst kaufen würden." },
+        { icon: "📋", title: "Klare Informationen", desc: "Wir geben alle verfügbaren Informationen zu jedem Fahrzeug weiter: Fahrzeuggeschichte, Kilometerstand und Allgemeinzustand." },
+        { icon: "🤝", title: "Persönlicher Kontakt", desc: "Wir sind für jede Frage offen. Ein gut informierter Kauf ist uns wichtiger als ein schneller Abschluss." },
+        { icon: "⭐", title: "Kundenservice", desc: "Wir sind auch nach der Fahrzeugübergabe erreichbar — für alles, was nach dem Kauf noch gebraucht wird." },
       ],
       statsLabel: "In Zahlen",
     },
     where: {
       pageLabel: "Besuchen Sie uns", pageTitle1: "Unser", pageTitle2: "Standort",
-      address: "Unser Showroom", addressVal: "Via Statale 13", addressCity: "39030 Vintl (BZ), Südtirol",
+      address: "Unser Showroom", addressVal: "Via Statale 13", addressCity: "Via Statale 13\n39030 Vintl (BZ)\nSüdtirol, Italien",
       hours: "Öffnungszeiten",
       hoursData: [{ day: "Montag – Freitag", time: "8:30 – 18:00" }, { day: "Samstag", time: "9:00 – 13:00" }, { day: "Sonntag", time: "Geschlossen" }],
-      howToGet: "Anreise", byCar: "Mit dem Auto", byCarDesc: "Ausfahrt Bruneck auf der A22.",
-      byTrain: "Mit dem Zug", byTrainDesc: "Bahnhof Bruneck ist 10 Gehminuten entfernt.",
-      parking: "Parkplatz", parkingDesc: "Kostenlose Parkplätze direkt vor dem Showroom.",
+      howToGet: "Anreise", byCar: "Mit dem Auto", byCarDesc: "Ausfahrt Bruneck/Pustertal auf der A22, dann Richtung Vintl folgen. Via Statale 13 ist innerhalb von 10 Minuten erreichbar.",
+      byTrain: "Mit dem Zug", byTrainDesc: "Haltestelle Vintl auf der Linie Franzensfeste–Innichen, direkt in der Nähe des Showrooms.",
+      parking: "Parkplatz", parkingDesc: "Kostenlose Kundenparkplätze stehen direkt vor dem Showroom zur Verfügung.",
       mapTitle: "Finden Sie uns auf Google Maps", cta: "In Google Maps öffnen",
     },
     contact: {
       pageLabel: "Wir sind für Sie da", pageTitle1: "Kontak", pageTitle2: "tieren Sie uns",
-      sub: "Haben Sie Fragen zu einem Fahrzeug? Möchten Sie einen Termin vereinbaren?",
+      sub: "Haben Sie Fragen zu einem Fahrzeug? Möchten Sie einen Besichtigungstermin vereinbaren oder eine Bewertung anfragen? Wir antworten Ihnen gerne.",
       phone: "Telefon", phoneVal: "+39 0474 123 456", phoneSub: "Mo–Fr: 8:30–18:00 · Sa: 9:00–13:00",
       email: "E-Mail", emailVal: "info@hm-sportcars.com", emailSub: "Antwort innerhalb 24 Stunden",
       whatsapp: "WhatsApp", whatsappVal: "+39 348 000 0000", whatsappSub: "Schreiben Sie uns auf WhatsApp",
@@ -209,7 +209,7 @@ const T = {
       formPlaceholderName: "z.B. Max Mustermann", formPlaceholderEmail: "z.B. max@email.com",
       formPlaceholderPhone: "z.B. +39 333 000 0000", formPlaceholderMessage: "Schreiben Sie hier Ihre Anfrage...",
     },
-    footer: "© 2025 HM Sportcars OHG — Vintl (BZ), Südtirol",
+    footer: "© 2025 HM Sportcars OHG — Vintl (BZ), Südtirol · Alle Rechte vorbehalten",
     impressum: {
       nav: "Impressum",
       title: "Impressum / Rechtliche Hinweise",
@@ -225,7 +225,7 @@ const T = {
         "Empfängercode SDI: KRRH6B9",
       ],
       s2title: "Haftungsausschluss",
-      s2: "Auf dieser Website bemühen wir uns, genaue und vollständige Informationen bereitzustellen. Wir übernehmen jedoch keine Haftung oder Garantie für die Aktualität, Richtigkeit und Vollständigkeit der bereitgestellten Informationen. Wir behalten uns das Recht vor, Inhalte ohne Vorankündigung zu ändern oder zu aktualisieren.",
+      s2: "Wir bemühen uns, auf dieser Website genaue und vollständige Informationen bereitzustellen. Dennoch übernehmen wir keine Haftung oder Gewähr für die Aktualität, Richtigkeit und Vollständigkeit der bereitgestellten Inhalte. Wir behalten uns vor, Inhalte jederzeit ohne Vorankündigung zu ändern.",
       s3title: "Verweise und Links",
       s3: "Trotz sorgfältiger Kontrolle übernehmen wir keine Verantwortung für die Inhalte externer Links. Für die Inhalte verlinkter Seiten sind ausschließlich deren Betreiber verantwortlich.",
       s4title: "Urheberrecht und Bilder",
@@ -239,9 +239,9 @@ const T = {
     },
     admin: {
       title: "Katalogverwaltung", login: "Admin-Bereich", pwd: "Passwort", enter: "Anmelden", cancel: "Abbrechen",
-      wrongPwd: "Falsches Passwort", add: "+ Fahrzeug hinzufügen", save: "Speichern", delete: "Fahrzeug löschen",
+      wrongPwd: "Falsches Passwort. Bitte erneut versuchen.", add: "+ Fahrzeug hinzufügen", save: "Speichern", delete: "Fahrzeug löschen",
       newCar: "Neues Fahrzeug", editCar: "Fahrzeug bearbeiten", confirm: "Dieses Fahrzeug löschen?", confirm2: "Löschen?",
-      mandatory: "Marke und Modell sind Pflichtfelder", updated: "Fahrzeug aktualisiert ✓", added: "Fahrzeug hinzugefügt ✓", deleted: "Fahrzeug gelöscht",
+      mandatory: "Marke und Modell sind Pflichtangaben.", updated: "Fahrzeug aktualisiert ✓", added: "Fahrzeug hinzugefügt ✓", deleted: "Fahrzeug gelöscht",
       logout: "Abmelden", backSite: "← Zurück zur Website",
       uploadPhoto: "Fahrzeugfotos", dropHere: "Fotos hier ablegen", clickUpload: "oder zum Hochladen klicken",
       photoTip: "JPG, PNG, WEBP — mehrere Fotos gleichzeitig auswählen", removePhoto: "Entfernen", orUrl: "oder Haupt-URL eingeben",
@@ -1134,7 +1134,7 @@ function PageWhere({ t }) {
         <h1 style={{ fontFamily: "'Space Grotesk',sans-serif", fontSize: isMobile ? 36 : 60, fontWeight: 700, color: "#fff", letterSpacing: -2, lineHeight: 1.0 }}>{w.pageTitle1} <span style={r}>{w.pageTitle2}</span></h1>
       </div>
       <div style={{ height: isMobile ? 280 : 480, background: "#1C1C1C", overflow: "hidden" }}>
-        <iframe title="HM Sportcars" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11036.04!2d11.9367!3d46.7968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47783f0c8cc9f4e5%3A0x6a5d6e2f4ab5b0c0!2sBrunico%20BZ!5e0!3m2!1sit!2sit!4v1"
+        <iframe title="HM Sportcars" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2757.1!2d11.8654!3d46.8312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4780276f3b5b5b5b%3A0x1234567890abcdef!2sVia+Statale+13%2C+39030+Vandoies+BZ!5e0!3m2!1sit!2sit!4v1"
           width="100%" height="100%" style={{ border: 0, filter: "invert(90%) hue-rotate(180deg)", opacity: 0.9 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
       </div>
       <div style={{ padding: pad, display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr 1fr", gap: 1, background: "rgba(255,255,255,0.03)" }}>
@@ -1143,7 +1143,7 @@ function PageWhere({ t }) {
           <h3 style={{ fontFamily: "'Space Grotesk',sans-serif", fontSize: 18, fontWeight: 700, color: "#fff", marginBottom: 12 }}>{w.address}</h3>
           <p style={{ fontSize: 15, color: "#C8102E", fontWeight: 600, marginBottom: 6 }}>{w.addressVal}</p>
           <p style={{ fontSize: 14, color: "#606060", lineHeight: 1.8, marginBottom: 20 }}>{w.addressCity}</p>
-          <a href="https://maps.google.com/?q=Brunico+BZ" target="_blank" rel="noreferrer" style={{ display: "inline-block", background: "#C8102E", color: "#fff", textDecoration: "none", padding: "10px 20px", fontSize: 12, fontWeight: 600, borderRadius: 2 }}>{w.cta} ↗</a>
+          <a href="https://maps.google.com/?q=Via+Statale+13,+39030+Vandoies+BZ,+Italia" target="_blank" rel="noreferrer" style={{ display: "inline-block", background: "#C8102E", color: "#fff", textDecoration: "none", padding: "10px 20px", fontSize: 12, fontWeight: 600, borderRadius: 2 }}>{w.cta} ↗</a>
         </div>
         <div style={{ background: "#141414", padding: isMobile ? "28px 20px" : "40px 32px" }}>
           <div style={{ fontSize: 24, marginBottom: 16 }}>🕐</div>
