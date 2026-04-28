@@ -417,6 +417,16 @@ function MultiPhotoUploader({ photos, onChange, t }) {
   const [uploading, setUploading] = useState(false);
   const [progress, setProgress] = useState(0);
   const [error, setError] = useState("");
+  const [urlInput, setUrlInput] = useState("");
+
+  const addUrl = () => {
+    const url = urlInput.trim();
+    if (!url) return;
+    if (!url.startsWith("http")) { setError("URL non valido"); return; }
+    onChange([...photos, { url, path: "" }]);
+    setUrlInput("");
+    setError("");
+  };
 
   const uploadFiles = async (files) => {
     if (!files.length) return;
@@ -485,6 +495,25 @@ function MultiPhotoUploader({ photos, onChange, t }) {
         <input ref={fileRef} type="file" accept="image/*" multiple style={{ display: "none" }} onChange={e => uploadFiles([...e.target.files])} />
       </div>
       {error && <div style={{ fontSize: 11, color: "#e44", marginTop: 4 }}>{error}</div>}
+
+      {/* URL aggiuntivo */}
+      <div style={{ display: "flex", alignItems: "center", gap: 8, margin: "10px 0 6px" }}>
+        <div style={{ flex: 1, height: 1, background: "rgba(255,255,255,0.06)" }} />
+        <span style={{ fontSize: 11, color: "#3a3a3a", whiteSpace: "nowrap" }}>{a.orUrl}</span>
+        <div style={{ flex: 1, height: 1, background: "rgba(255,255,255,0.06)" }} />
+      </div>
+      <div style={{ display: "flex", gap: 8 }}>
+        <input
+          style={{ ...iStyle, fontSize: 13, flex: 1 }}
+          placeholder="https://... (incolla URL foto da AutoScout o altro)"
+          value={urlInput}
+          onChange={e => setUrlInput(e.target.value)}
+          onKeyDown={e => { if (e.key === "Enter") addUrl(); }}
+        />
+        <button onClick={addUrl} style={{ background: "#C8102E", border: "none", color: "#fff", padding: "0 16px", fontFamily: "Inter,sans-serif", fontSize: 12, fontWeight: 600, cursor: "pointer", borderRadius: 2, whiteSpace: "nowrap" }}>
+          + Aggiungi
+        </button>
+      </div>
     </div>
   );
 }
