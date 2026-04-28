@@ -421,6 +421,8 @@ function MultiPhotoUploader({ photos, onChange, t }) {
   const [progress, setProgress] = useState(0);
   const [error, setError] = useState("");
   const [urlInput, setUrlInput] = useState("");
+  const dragIdx = useRef(null);
+  const dragOverIdx = useRef(null);
 
   const addUrl = () => {
     const url = urlInput.trim();
@@ -429,6 +431,20 @@ function MultiPhotoUploader({ photos, onChange, t }) {
     onChange([...photos, { url, path: "" }]);
     setUrlInput("");
     setError("");
+  };
+
+  const onDragStart = (i) => { dragIdx.current = i; };
+  const onDragEnter = (i) => { dragOverIdx.current = i; };
+  const onDragEnd = () => {
+    const from = dragIdx.current;
+    const to = dragOverIdx.current;
+    if (from === null || to === null || from === to) return;
+    const arr = [...photos];
+    const [moved] = arr.splice(from, 1);
+    arr.splice(to, 0, moved);
+    onChange(arr);
+    dragIdx.current = null;
+    dragOverIdx.current = null;
   };
 
   const uploadFiles = async (files) => {
@@ -464,16 +480,26 @@ function MultiPhotoUploader({ photos, onChange, t }) {
     <div style={{ marginBottom: 20 }}>
       <label style={{ display: "block", fontSize: 10, fontWeight: 700, letterSpacing: 2, textTransform: "uppercase", color: "#606060", marginBottom: 8 }}>{a.photos} ({photos.length} {a.photoCount})</label>
 
-      {/* Griglia foto */}
+      {/* Griglia foto con drag & drop per riordinare */}
       {photos.length > 0 && (
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(140px,1fr))", gap: 4, marginBottom: 12 }}>
-          {photos.map((ph, i) => (
-            <div key={i} style={{ position: "relative", aspectRatio: "16/10", borderRadius: 2, overflow: "hidden", background: "#1C1C1C" }}>
-              <img src={ph.url} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-              {i === 0 && <div style={{ position: "absolute", top: 4, left: 4, background: "#C8102E", color: "#fff", fontSize: 9, fontWeight: 700, padding: "2px 6px", borderRadius: 2, letterSpacing: 1 }}>COVER</div>}
-              <button onClick={() => removePhoto(i)} style={{ position: "absolute", top: 4, right: 4, background: "rgba(0,0,0,0.7)", border: "none", color: "#fff", width: 22, height: 22, cursor: "pointer", borderRadius: "50%", fontSize: 11, display: "flex", alignItems: "center", justifyContent: "center" }}>✕</button>
-            </div>
-          ))}
+        <div>
+          <div style={{ fontSize: 10, color: "#3a3a3a", marginBottom: 6, letterSpacing: 1 }}>↕ Trascina per riordinare · La prima è la cover</div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(140px,1fr))", gap: 4, marginBottom: 12 }}>
+            {photos.map((ph, i) => (
+              <div key={ph.url + i}
+                draggable
+                onDragStart={() => onDragStart(i)}
+                onDragEnter={() => onDragEnter(i)}
+                onDragEnd={onDragEnd}
+                onDragOver={e => e.preventDefault()}
+                style={{ position: "relative", aspectRatio: "16/10", borderRadius: 2, overflow: "hidden", background: "#1C1C1C", cursor: "grab", userSelect: "none" }}>
+                <img src={ph.url} alt="" style={{ width: "100%", height: "100%", objectFit: "cover", pointerEvents: "none" }} />
+                {i === 0 && <div style={{ position: "absolute", top: 4, left: 4, background: "#C8102E", color: "#fff", fontSize: 9, fontWeight: 700, padding: "2px 6px", borderRadius: 2, letterSpacing: 1 }}>COVER</div>}
+                <div style={{ position: "absolute", bottom: 4, left: 4, background: "rgba(0,0,0,0.6)", color: "#fff", fontSize: 9, padding: "2px 5px", borderRadius: 2 }}>{i + 1}</div>
+                <button onClick={() => removePhoto(i)} style={{ position: "absolute", top: 4, right: 4, background: "rgba(0,0,0,0.7)", border: "none", color: "#fff", width: 22, height: 22, cursor: "pointer", borderRadius: "50%", fontSize: 11, display: "flex", alignItems: "center", justifyContent: "center" }}>✕</button>
+              </div>
+            ))}
+          </div>
         </div>
       )}
 
