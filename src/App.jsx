@@ -4,7 +4,7 @@ import { collection, onSnapshot, addDoc, updateDoc, deleteDoc, doc, orderBy, que
 import { ref, uploadBytesResumable, getDownloadURL, deleteObject } from "firebase/storage";
 
 const ADMIN_PWD = "hmsport2025";
-const WHATSAPP_NUMBER = "393480000000"; // Numero WhatsApp senza + e spazi
+const WHATSAPP_NUMBER = "393472607790"; // Numero WhatsApp senza + e spazi
 
 const CAR_BRANDS = [
   "Abarth","Alfa Romeo","Audi","BMW","Chevrolet","Chrysler","Citroën","Cupra",
@@ -79,7 +79,7 @@ const T = {
       sub: "Hai domande su una vettura? Vuoi fissare un appuntamento o richiedere una valutazione? Siamo disponibili a rispondere.",
       phone: "Telefono", phoneVal: "+39 0472 869296", phoneSub: "Lun–Ven: 8:30–18:00 · Sab: 9:00–13:00",
       email: "Email", emailVal: "info@ghm-sportcars.com", emailSub: "Risposta entro 24 ore",
-      whatsapp: "WhatsApp", whatsappVal: "+39 348 000 0000", whatsappSub: "Scrivici su WhatsApp",
+      whatsapp: "WhatsApp", whatsappVal: "+39 347 260 7790", whatsappSub: "Scrivici su WhatsApp",
       formTitle: "Inviaci un messaggio",
       formName: "Nome e Cognome", formEmail: "Email", formPhone: "Telefono (opzionale)",
       formSubject: "Oggetto", formMessage: "Messaggio",
@@ -200,7 +200,7 @@ const T = {
       sub: "Haben Sie Fragen zu einem Fahrzeug? Möchten Sie einen Besichtigungstermin vereinbaren oder eine Bewertung anfragen? Wir antworten Ihnen gerne.",
       phone: "Telefon", phoneVal: "+39 0474 123 456", phoneSub: "Mo–Fr: 8:30–18:00 · Sa: 9:00–13:00",
       email: "E-Mail", emailVal: "info@hm-sportcars.com", emailSub: "Antwort innerhalb 24 Stunden",
-      whatsapp: "WhatsApp", whatsappVal: "+39 348 000 0000", whatsappSub: "Schreiben Sie uns auf WhatsApp",
+      whatsapp: "WhatsApp", whatsappVal: "+39 347 260 7790", whatsappSub: "Schreiben Sie uns auf WhatsApp",
       formTitle: "Nachricht senden",
       formName: "Vor- und Nachname", formEmail: "E-Mail", formPhone: "Telefon (optional)",
       formSubject: "Betreff", formMessage: "Nachricht",
@@ -357,7 +357,7 @@ function Footer({ t, setPage, goAdmin }) {
         </div>
         <div>
           <div style={{ fontSize: 11, fontWeight: 700, letterSpacing: 2, color: "#C8102E", textTransform: "uppercase", marginBottom: 16 }}>Contatti</div>
-          <p style={{ fontSize: 13, color: "#606060", lineHeight: 1.9 }}>+39 0472 869296<br />info@ghm-sportcars.com<br />Via Statale 13, 39030 Vandoies (BZ)</p>
+          <p style={{ fontSize: 13, color: "#606060", lineHeight: 1.9 }}>+39 0472 869296<br />+39 347 260 7790<br />info@ghm-sportcars.com<br />Via Statale 13, 39030 Vandoies (BZ)</p>
         </div>
       </div>
       <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: 20, display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 8 }}>
@@ -1062,7 +1062,7 @@ function PageHome({ t, cars, setPage, setSelectedCar }) {
               {t.lang === "de" ? "Schnelle Antworten, direkt auf Ihrem Telefon." : "Risposte rapide, direttamente sul tuo telefono."}
             </p>
           </div>
-          <a href={"https://wa.me/393480000000?text=" + encodeURIComponent(t.lang === "de" ? "Guten Tag! Ich interessiere mich für ein Fahrzeug." : "Ciao! Sono interessato a una vettura.")}
+          <a href={"https://wa.me/393472607790?text=" + encodeURIComponent(t.lang === "de" ? "Guten Tag! Ich interessiere mich für ein Fahrzeug." : "Ciao! Sono interessato a una vettura.")}
             target="_blank" rel="noreferrer" className="btn-wa"
             style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "#25D366", color: "#fff", textDecoration: "none", padding: "13px 28px", fontFamily: "Inter,sans-serif", fontSize: 13, fontWeight: 700, borderRadius: 2 }}>
             <span style={{ fontSize: 18 }}>💬</span> WhatsApp
