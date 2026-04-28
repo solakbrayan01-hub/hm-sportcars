@@ -3,7 +3,10 @@ import { db, storage } from "./firebase";
 import { collection, onSnapshot, addDoc, updateDoc, deleteDoc, doc, orderBy, query } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL, deleteObject } from "firebase/storage";
 
-const ADMIN_PWD = "hmsport2025";
+// Auth
+const _a = (s) => atob([...s].map(c=>String.fromCharCode(c.charCodeAt(0)-3)).join('').split('').reverse().join(''));
+const _k = "@XmPzLGg|<Jf}4Jd";
+const _v = () => _a(_k);
 const WHATSAPP_NUMBER = "393472607790"; // Numero WhatsApp senza + e spazi
 
 const CAR_BRANDS = [
@@ -1347,7 +1350,33 @@ export default function App() {
   const goAdmin = () => { window.history.pushState({}, "", "/admin"); setIsAdminPage(true); };
   const goSite = () => { window.history.pushState({}, "", "/"); setIsAdminPage(false); };
   const showToast = msg => { setToast({ msg, show: true }); setTimeout(() => setToast(p => ({ ...p, show: false })), 3000); };
-  const doLogin = () => { if (pwd === ADMIN_PWD) { setAuth(true); setPwdErr(""); } else setPwdErr(t.admin.wrongPwd); };
+  const doLogin = () => {
+    const attempts = parseInt(sessionStorage.getItem("_atm") || "0");
+    const lockUntil = parseInt(sessionStorage.getItem("_lck") || "0");
+    if (Date.now() < lockUntil) {
+      const mins = Math.ceil((lockUntil - Date.now()) / 60000);
+      setPwdErr(`Accesso bloccato. Riprova tra ${mins} minuto/i.`);
+      return;
+    }
+    if (pwd === _v()) {
+      setAuth(true);
+      sessionStorage.removeItem("_atm");
+      sessionStorage.removeItem("_lck");
+      setPwdErr("");
+      // Auto logout dopo 60 minuti
+      setTimeout(() => { setAuth(false); goSite(); }, 60 * 60 * 1000);
+    } else {
+      const newAttempts = attempts + 1;
+      sessionStorage.setItem("_atm", newAttempts);
+      if (newAttempts >= 5) {
+        sessionStorage.setItem("_lck", Date.now() + 10 * 60 * 1000);
+        sessionStorage.setItem("_atm", "0");
+        setPwdErr("Troppi tentativi. Accesso bloccato per 10 minuti.");
+      } else {
+        setPwdErr(`Accesso negato. (${5 - newAttempts} tentativi rimanenti)`);
+      }
+    }
+  };
 
   const globalStyle = `
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
