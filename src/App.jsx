@@ -798,7 +798,7 @@ function CarForm({ car, onSave, onDelete, onClose, t, saving }) {
         <FG label={f.brand}><BrandSelector value={form.brand} onChange={v => set("brand", v)} placeholder={f.selectBrand} /></FG>
         <FG label={f.model}><input style={iStyle} value={form.model} onChange={e => set("model", e.target.value)} placeholder="es. Golf GTI" /></FG>
         <FG label={f.year}><input style={iStyle} type="number" value={form.year} onChange={e => set("year", e.target.value)} /></FG>
-        <FG label={f.price}><input style={iStyle} type="number" value={form.price} onChange={e => set("price", e.target.value)} /></FG>
+        <FG label={f.price}><input style={iStyle} type="text" inputMode="numeric" value={form.price} placeholder="es. 16300" onChange={e => set("price", e.target.value.replace(/[.,]/g, "").replace(/[^0-9]/g, ""))} /></FG>
         <FG label={f.power}><input style={iStyle} value={form.power} onChange={e => set("power", e.target.value)} placeholder="es. 150" /></FG>
         <FG label={f.km}><input style={iStyle} value={form.km} onChange={e => set("km", e.target.value)} placeholder="es. 45.000" /></FG>
         <FG label={f.cat}>
@@ -855,7 +855,7 @@ function AdminPage({ cars, onLogout, onBack, showToast, t }) {
     setSaving(true);
     try {
       const data = {
-        brand: form.brand, model: form.model, year: +form.year, price: +form.price,
+        brand: form.brand, model: form.model, year: +form.year, price: +String(form.price).replace(/\./g, '').replace(/,/g, ''),
         power: form.power, km: form.km, category: form.category, badge: form.badge,
         description: form.description || "",
         fuel: form.fuel || "", gearbox: form.gearbox || "", color: form.color || "",
