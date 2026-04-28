@@ -1,0 +1,376 @@
+/* ─── GLOBAL TRANSITIONS ──────────────────────────────────────────────────── */
+* {
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── BUTTONS ─────────────────────────────────────────────────────────────── */
+button, a {
+  transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Primary red button */
+button[style*="background: rgb(200, 16, 46)"],
+button[style*="background:#C8102E"],
+a[style*="background: rgb(200, 16, 46)"],
+a[style*="background:#C8102E"] {
+  position: relative;
+  overflow: hidden;
+}
+button[style*="background: rgb(200, 16, 46)"]:hover,
+a[style*="background: rgb(200, 16, 46)"]:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 24px rgba(200, 16, 46, 0.35) !important;
+}
+button[style*="background: rgb(200, 16, 46)"]:active,
+a[style*="background: rgb(200, 16, 46)"]:active {
+  transform: translateY(0px) !important;
+}
+
+/* WhatsApp button */
+a[href*="wa.me"]:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.35) !important;
+}
+
+/* Ghost / outline buttons */
+button[style*="rgba(255,255,255,0.08)"]:hover,
+button[style*="transparent"]:hover {
+  transform: translateY(-1px) !important;
+}
+
+/* Nav links */
+nav button:hover {
+  letter-spacing: 0.7px !important;
+}
+
+/* ─── CAR CARDS ───────────────────────────────────────────────────────────── */
+.car-card-wrapper {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.car-card-wrapper:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+
+/* ─── TICKER ──────────────────────────────────────────────────────────────── */
+.ticker-wrap {
+  overflow: hidden;
+}
+
+/* ─── SECTION FADE-IN ─────────────────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Hero content animation */
+.hero-content-animate {
+  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+.hero-eyebrow-animate {
+  animation: slideInLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.1s both;
+}
+.hero-title-animate {
+  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
+}
+.hero-sub-animate {
+  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.35s both;
+}
+.hero-cta-animate {
+  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.5s both;
+}
+.hero-stats-animate {
+  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.65s both;
+}
+
+/* Page transition */
+.page-animate {
+  animation: fadeIn 0.35s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+/* Card detail animate */
+.detail-animate {
+  animation: scaleIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+/* ─── STAT NUMBERS ────────────────────────────────────────────────────────── */
+.stat-num {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.3s ease;
+}
+.stat-num:hover {
+  transform: scale(1.06);
+  color: #C8102E !important;
+}
+
+/* ─── THUMBNAIL ───────────────────────────────────────────────────────────── */
+.thumb-item {
+  transition: transform 0.2s ease, opacity 0.2s ease, border-color 0.2s ease !important;
+}
+.thumb-item:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* ─── SPEC ROWS ───────────────────────────────────────────────────────────── */
+.spec-row {
+  transition: background 0.2s ease, padding-left 0.2s ease;
+}
+.spec-row:hover {
+  background: rgba(200, 16, 46, 0.04) !important;
+  padding-left: 6px !important;
+}
+
+/* ─── ADMIN ROWS ──────────────────────────────────────────────────────────── */
+.admin-row {
+  transition: background 0.15s ease, transform 0.15s ease !important;
+}
+.admin-row:hover {
+  transform: translateX(3px) !important;
+}
+
+/* ─── FORM INPUTS ─────────────────────────────────────────────────────────── */
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: rgba(200, 16, 46, 0.6) !important;
+  box-shadow: 0 0 0 3px rgba(200, 16, 46, 0.08) !important;
+  transition: all 0.2s ease !important;
+}
+
+/* ─── FOOTER LINKS ────────────────────────────────────────────────────────── */
+.footer-link {
+  transition: color 0.2s ease, padding-left 0.2s ease !important;
+}
+.footer-link:hover {
+  color: #fff !important;
+  padding-left: 6px !important;
+}
+
+/* ─── NAV ACTIVE INDICATOR ────────────────────────────────────────────────── */
+.nav-item {
+  position: relative;
+  transition: color 0.2s ease !important;
+}
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #C8102E;
+  transform: scaleX(0);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+}
+.nav-item:hover::after,
+.nav-item.active::after {
+  transform: scaleX(1);
+}
+
+/* ─── BADGE PULSE (new arrivals) ──────────────────────────────────────────── */
+@keyframes pulse-red {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(200, 16, 46, 0.4); }
+  50%       { box-shadow: 0 0 0 6px rgba(200, 16, 46, 0); }
+}
+.badge-new-pulse {
+  animation: pulse-red 2.5s ease-in-out infinite;
+}
+
+/* ─── IMAGE ZOOM ON HOVER ─────────────────────────────────────────────────── */
+.img-zoom-wrap {
+  overflow: hidden;
+}
+.img-zoom-wrap img {
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+.img-zoom-wrap:hover img {
+  transform: scale(1.06) !important;
+}
+
+/* ─── SOCIAL / CONTACT CARDS ─────────────────────────────────────────────── */
+.contact-card {
+  transition: transform 0.25s ease, background 0.25s ease !important;
+}
+.contact-card:hover {
+  transform: translateY(-4px) !important;
+  background: #1C1C1C !important;
+}
+
+/* ─── VALUE / ABOUT CARDS ─────────────────────────────────────────────────── */
+.value-card {
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease !important;
+}
+.value-card:hover {
+  transform: translateY(-3px) !important;
+  background: #1a1a1a !important;
+  border-color: rgba(200, 16, 46, 0.2) !important;
+}
+
+/* ─── TEAM MEMBER CARDS ───────────────────────────────────────────────────── */
+.team-card {
+  transition: transform 0.25s ease, background 0.25s ease !important;
+}
+.team-card:hover {
+  transform: translateY(-4px) !important;
+  background: #1C1C1C !important;
+}
+.team-avatar {
+  transition: transform 0.3s ease, background 0.3s ease !important;
+}
+.team-card:hover .team-avatar {
+  transform: scale(1.1) !important;
+  background: rgba(200, 16, 46, 0.2) !important;
+}
+
+/* ─── PHOTO THUMBNAILS ────────────────────────────────────────────────────── */
+.photo-thumb {
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  cursor: pointer;
+}
+.photo-thumb:hover {
+  transform: scale(1.04) !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4) !important;
+}
+
+/* ─── PRICE BOX ───────────────────────────────────────────────────────────── */
+.price-box {
+  transition: border-color 0.3s ease !important;
+}
+.price-box:hover {
+  border-color: rgba(200, 16, 46, 0.3) !important;
+}
+
+/* ─── SEARCH FILTERS PANEL ────────────────────────────────────────────────── */
+.filter-panel {
+  animation: fadeInUp 0.25s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+/* ─── LOGO ────────────────────────────────────────────────────────────────── */
+.logo-svg {
+  transition: opacity 0.2s ease, transform 0.2s ease !important;
+}
+.logo-svg:hover {
+  opacity: 0.85 !important;
+  transform: scale(1.03) !important;
+}
+
+/* ─── MOBILE MENU ─────────────────────────────────────────────────────────── */
+.mobile-menu {
+  animation: fadeInUp 0.2s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+.mobile-menu button {
+  transition: background 0.15s ease, color 0.15s ease, padding-left 0.15s ease !important;
+}
+.mobile-menu button:hover {
+  padding-left: 28px !important;
+  color: #fff !important;
+}
+
+/* ─── LIGHTBOX ────────────────────────────────────────────────────────────── */
+.lightbox {
+  animation: fadeIn 0.2s ease both;
+}
+.lightbox-nav {
+  transition: background 0.2s ease, transform 0.2s ease !important;
+}
+.lightbox-nav:hover {
+  background: rgba(200, 16, 46, 0.7) !important;
+  transform: scale(1.08) !important;
+}
+
+/* ─── HOURS ROW ───────────────────────────────────────────────────────────── */
+.hours-row {
+  transition: background 0.2s ease, padding-left 0.2s ease !important;
+}
+.hours-row:hover {
+  background: rgba(255,255,255,0.03) !important;
+  padding-left: 8px !important;
+}
+
+/* ─── LANG SWITCHER ───────────────────────────────────────────────────────── */
+.lang-btn {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+.lang-btn:hover {
+  transform: scale(1.08) !important;
+}
+
+/* ─── SCROLL INDICATOR (hero bottom) ─────────────────────────────────────── */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(6px); }
+}
+.scroll-indicator {
+  animation: bounce 1.8s ease-in-out infinite;
+}
+
+/* ─── TICKER PAUSE ON HOVER ───────────────────────────────────────────────── */
+.ticker-inner:hover {
+  animation-play-state: paused !important;
+}
+
+/* ─── RIPPLE EFFECT ON CLICK ──────────────────────────────────────────────── */
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(0);
+  animation: ripple 0.5s linear;
+  pointer-events: none;
+}
+
+/* ─── FOCUS RING ──────────────────────────────────────────────────────────── */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #C8102E !important;
+  outline-offset: 3px !important;
+}
