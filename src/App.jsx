@@ -987,8 +987,8 @@ function PageHome({ t, cars, setPage, setSelectedCar }) {
   const [showAll, setShowAll] = useState(false);
   const r = { color: "#C8102E" };
   // Prima riga: 3 su desktop (1 riga da 3 col), 2 su mobile
-  const initialCount = isMobile ? 2 : 3;
-  const visibleCars = showAll ? cars.slice(0, isMobile ? 6 : 9) : cars.slice(0, initialCount);
+  const initialCount = isMobile ? 2 : 5;
+  const visibleCars = showAll ? cars.slice(0, isMobile ? 6 : 15) : cars.slice(0, initialCount);
   return (
     <>
       <div style={{ position: "relative", height: "100vh", overflow: "hidden", display: "flex", alignItems: "center" }}>
