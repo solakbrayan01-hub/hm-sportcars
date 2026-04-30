@@ -606,7 +606,12 @@ function CarDetail({ car, t, onBack }) {
   const whatsappMsg = encodeURIComponent(`${d.whatsappMsg} ${car.brand} ${car.model} (${car.year}) - € ${Number(car.price).toLocaleString("it-IT")}. Potete darmi più informazioni?`);
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMsg}`;
 
-  const copyLink = () => { navigator.clipboard.writeText(window.location.href); setCopied(true); setTimeout(() => setCopied(false), 2000); };
+  const copyLink = () => {
+    const url = `${window.location.origin}/?car=${car.id}`;
+    navigator.clipboard.writeText(url);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   const specs = [
     { label: sl.power, value: car.power ? `${car.power} ${t.lang === "de" ? "PS" : "CV"}` : null },
@@ -1381,6 +1386,7 @@ export default function App() {
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState("home");
   const [selectedCar, setSelectedCar] = useState(null);
+  const [initialCarId] = useState(() => new URLSearchParams(window.location.search).get("car"));
   const [auth, setAuth] = useState(false);
   const [isAdminPage, setIsAdminPage] = useState(window.location.pathname === "/admin");
   const [pwd, setPwd] = useState("");
@@ -1389,7 +1395,15 @@ export default function App() {
 
   useEffect(() => {
     const q = query(collection(db, "cars"), orderBy("createdAt", "desc"));
-    const unsub = onSnapshot(q, snap => { setCars(snap.docs.map(d => ({ id: d.id, ...d.data() }))); setLoading(false); }, () => setLoading(false));
+    const unsub = onSnapshot(q, snap => {
+      const loaded = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+      setCars(loaded);
+      setLoading(false);
+      if (initialCarId) {
+        const found = loaded.find(c => c.id === initialCarId);
+        if (found) setSelectedCar(found);
+      }
+    }, () => setLoading(false));
     return () => unsub();
   }, []);
 
