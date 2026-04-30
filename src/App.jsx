@@ -83,9 +83,11 @@ const T = {
       phone: "Telefono", phoneVal: "+39 0472 869296", phoneSub: "Lun–Ven: 8:30–18:00 · Sab: 9:00–13:00",
       email: "Email", emailVal: "info@ghm-sportcars.com", emailSub: "Risposta entro 24 ore",
       whatsapp: "WhatsApp", whatsappVal: "+39 347 260 7790", whatsappSub: "Scrivici su WhatsApp",
+      autoscoutUrl: "https://www.autoscout24.it/concessionari/h-e-m-sportcars-ohg-des",
       formTitle: "Inviaci un messaggio",
       formName: "Nome e Cognome", formEmail: "Email", formPhone: "Telefono (opzionale)",
       formSubject: "Oggetto", formMessage: "Messaggio",
+      autoscout: "Vedi le nostre auto su AutoScout24 →",
       formSubjects: ["Informazioni su una vettura", "Richiesta appuntamento", "Valutazione auto usata", "Finanziamento", "Altro"],
       formSend: "Invia Messaggio", formSending: "Invio...", formSent: "Messaggio inviato! Ti risponderemo presto.",
       formPlaceholderName: "es. Mario Rossi", formPlaceholderEmail: "es. mario@email.com",
@@ -204,9 +206,11 @@ const T = {
       phone: "Telefon", phoneVal: "+39 0474 123 456", phoneSub: "Mo–Fr: 8:30–18:00 · Sa: 9:00–13:00",
       email: "E-Mail", emailVal: "info@hm-sportcars.com", emailSub: "Antwort innerhalb 24 Stunden",
       whatsapp: "WhatsApp", whatsappVal: "+39 347 260 7790", whatsappSub: "Schreiben Sie uns auf WhatsApp",
+      autoscoutUrl: "https://www.autoscout24.it/concessionari/h-e-m-sportcars-ohg-des",
       formTitle: "Nachricht senden",
       formName: "Vor- und Nachname", formEmail: "E-Mail", formPhone: "Telefon (optional)",
       formSubject: "Betreff", formMessage: "Nachricht",
+      autoscout: "Unsere Fahrzeuge auf AutoScout24 ansehen →",
       formSubjects: ["Informationen zu einem Fahrzeug", "Terminanfrage", "Fahrzeugbewertung", "Finanzierung", "Sonstiges"],
       formSend: "Nachricht senden", formSending: "Wird gesendet...", formSent: "Nachricht gesendet!",
       formPlaceholderName: "z.B. Max Mustermann", formPlaceholderEmail: "z.B. max@email.com",
@@ -279,7 +283,7 @@ function useIsMobile() {
 
 function Logo({ small, onClick }) {
   return (
-    <svg onClick={onClick} className="logo-wrap" style={{ cursor: onClick ? "pointer" : "default" }} height={small ? 22 : 26} viewBox="0 0 220 48" xmlns="http://www.w3.org/2000/svg">
+    <svg onClick={onClick} className="logo-wrap" style={{ cursor: onClick ? "pointer" : "default" }} height={small ? 28 : 40} viewBox="0 0 220 48" xmlns="http://www.w3.org/2000/svg">
       <rect x="2" y="8" width="14" height="32" rx="1" fill="#888" /><rect x="2" y="22" width="52" height="5" rx="1" fill="#666" /><rect x="42" y="8" width="14" height="32" rx="1" fill="#888" />
       <path d="M70 8 L90 8 L108 28 L126 8 L146 8 L146 40 L132 40 L132 22 L108 42 L84 22 L84 40 L70 40 Z" fill="#555" />
       <path d="M158 34 Q172 20 210 26" stroke="#C8102E" strokeWidth="2.5" fill="none" strokeLinecap="round" />
@@ -718,7 +722,7 @@ function CarDetail({ car, t, onBack }) {
               <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
                 <a href={whatsappUrl} target="_blank" rel="noreferrer" className="btn-wa"
                   style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, background: "#25D366", color: "#fff", textDecoration: "none", padding: "14px", fontFamily: "Inter,sans-serif", fontSize: 14, fontWeight: 700, borderRadius: 2, letterSpacing: .3 }}>
-                  <span style={{ fontSize: 18 }}>💬</span> {d.whatsapp}
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> {d.whatsapp}
                 </a>
                 <a href="tel:+390474123456"
                   style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, background: "#C8102E", color: "#fff", textDecoration: "none", padding: "13px", fontFamily: "Inter,sans-serif", fontSize: 13, fontWeight: 600, borderRadius: 2 }}>
@@ -734,7 +738,7 @@ function CarDetail({ car, t, onBack }) {
               <div style={{ background: "#141414", border: "1px solid rgba(255,255,255,0.06)", borderRadius: 2, padding: "20px", textAlign: "center" }}>
                 <div style={{ fontSize: 14, color: "#606060" }}>{isRes ? "Questa vettura è riservata. Contattaci per disponibilità." : "Questa vettura è stata venduta. Contattaci per vetture simili."}</div>
                 <a href={whatsappUrl} target="_blank" rel="noreferrer" style={{ display: "inline-block", marginTop: 14, background: "#25D366", color: "#fff", textDecoration: "none", padding: "11px 24px", fontFamily: "Inter,sans-serif", fontSize: 13, fontWeight: 600, borderRadius: 2 }}>
-                  💬 {d.whatsapp}
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> {d.whatsapp}
                 </a>
               </div>
             )}
@@ -1116,7 +1120,7 @@ function PageHome({ t, cars, setPage, setSelectedCar }) {
           <a href={"https://wa.me/393472607790?text=" + encodeURIComponent(t.lang === "de" ? "Guten Tag! Ich interessiere mich für ein Fahrzeug." : "Ciao! Sono interessato a una vettura.")}
             target="_blank" rel="noreferrer" className="btn-wa"
             style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "#25D366", color: "#fff", textDecoration: "none", padding: "13px 28px", fontFamily: "Inter,sans-serif", fontSize: 13, fontWeight: 700, borderRadius: 2 }}>
-            <span style={{ fontSize: 18 }}>💬</span> WhatsApp
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp
           </a>
         </div>
       </div>
