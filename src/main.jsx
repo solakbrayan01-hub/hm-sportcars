@@ -11,10 +11,13 @@ function Root() {
 
   useEffect(() => {
     if (sessionStorage.getItem("preview_ok") === "1") { setShowSite(true); return; }
-    if (window.location.pathname.includes("admin")) {
-      const pwd = window.prompt("Password preview:");
+    if (window.location.pathname.includes("digital")) {
+      const pwd = window.prompt("Password:");
       if (pwd === PREVIEW_PWD) { sessionStorage.setItem("preview_ok", "1"); setShowSite(true); }
       else { window.location.href = "/"; }
+    }
+    if (window.location.pathname.includes("admin")) {
+      setShowSite(true);
     }
   }, []);
 
